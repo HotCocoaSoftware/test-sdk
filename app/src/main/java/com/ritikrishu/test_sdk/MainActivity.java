@@ -1,6 +1,8 @@
 package com.ritikrishu.test_sdk;
 
+import android.os.AsyncTask;
 import android.os.Bundle;
+import android.os.Looper;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +26,14 @@ public class MainActivity extends AppCompatActivity {
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                ToastLibrary.builder(MainActivity.this, "This is msg");
+                ToastLibrary.getIPAndStoreInCache(MainActivity.this);
+//                new AsyncTask<Integer,Integer,Integer>() {
+//                    @Override
+//                    protected Integer doInBackground(Integer... integers) {
+//                        ToastLibrary.getIPAndStoreInCache(MainActivity.this);
+//                        return  null;
+//                    }
+//                }.execute(123);
             }
         });
     }
